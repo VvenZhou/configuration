@@ -4,6 +4,8 @@ set hlsearch
 set ruler
 set encoding=utf-8
 highlight Comment ctermfg=green
+set t_Co=256
+set background=dark
 
 filetype indent on
 set showmode
