@@ -13,6 +13,16 @@ set showmode
 nnoremap zz :update<cr>
 nnoremap ZZ :update<cr>:q<cr>
 
+inoremap ii <Esc>l
+vnoremap vv <Esc>
+
+nnoremap \p i(<Esc>ea)<Esc>
+nnoremap \c i{<Esc>ea}<Esc>
+
+vnoremap \p di()<esc>hpl<esc>
+vnoremap \b di[]<esc>hpl<esc>
+vnoremap \c di{}<esc>hpl<esc>
+
 au Filetype python setlocal ts=4 sw=4 sts=4 autoindent smartindent expandtab 
 au Filetype c setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
 au Filetype make setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
