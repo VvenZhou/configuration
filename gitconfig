@@ -1,0 +1,18 @@
+[user]
+	name = vvenzhou
+	email = vvenzhou@gmail.com
+[alias]
+	co = checkout
+	cob = checkout -b
+
+	c = commit
+
+	df = diff
+	dfc = diff --cached
+	dfs = diff --staged
+
+	st = status -sb
+
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	plg = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+	

@@ -15,13 +15,25 @@ export PS1='\u@\h:\[\e[33m\]\w\[\e[0m\]\$ '
 export PATH="$PATH:/home/vvenzhou/.local/bin"
 
 export EDITOR=vim
+export TERM=alacritty
 
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#     tmux attach -t default || tmux new -s default
-# fi
+# alias xrayRun="cd ~/freeland/Xray; ./xray -c ptjsons/0.json"
+xray(){
+	cd "$HOME/freeland/Xray"
+	./xray "-c" "ptjsons/$1.json"
+}
 
-# # if tmux is executable, X is running, and not inside a tmux session, then try to attach.
-# # if attachment fails, start a new session
-# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-#   [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
-# fi
+codingxraypt(){
+	cd "$HOME/freeland/xraypt"
+	tmux "new" "vim xraypt.go"
+}
+alias proxyOn="export http_proxy=http://127.0.0.1:8123; export https_proxy=http://127.0.0.1:8123"
+alias proxyOff="export http_proxy=; export https_proxy="
+
+alias cpuHigh="sudo cpupower frequency-set -g performance"
+alias cpuLow="sudo cpupower frequency-set -g powersave"
+alias cpuShow="sudo cpupower frequency-info"
+
+alias lock="swaylock"
+
+alias btc="bluetoothctl"

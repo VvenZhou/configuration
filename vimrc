@@ -6,6 +6,7 @@ set encoding=utf-8
 highlight Comment ctermfg=green
 set t_Co=256
 set background=dark
+set showcmd
 
 filetype indent on
 set showmode
@@ -26,3 +27,6 @@ vnoremap \c di{}<esc>hpl<esc>
 au Filetype python setlocal ts=4 sw=4 sts=4 autoindent smartindent expandtab 
 au Filetype c setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
 au Filetype make setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
+
+set copyindent
+set pastetoggle=<F2>
