@@ -20,6 +20,8 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu wofi --show=drun --term=$term -i --line=5 -G --location=2
 
+set $browser google-chrome-stable
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -35,10 +37,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -70,6 +72,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym $mod+c exec $browser 
+
+bindsym $mod+tab workspace next_on_output
+bindsym $mod+Shift+tab workspace prev_on_output 
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
