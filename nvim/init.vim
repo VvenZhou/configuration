@@ -1,25 +1,18 @@
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set wildmode=longest,list   " get bash-like tab completions
-" set cc=80                  " set an 80 column border for good coding style
-set clipboard=unnamedplus   " using system clipboard
-set cursorline              " highlight current cursorline
+"set cc=80                  " set an 80 column border for good coding style
+"set clipboard=unnamedplus   " using system clipboard
 set ttyfast                 " Speed up scrolling in Vim
 set backupdir=~/.cache/vim " Directory to store backup files.
-syntax on
 set number
 set hlsearch
 set ruler
 set encoding=utf-8
 highlight Comment ctermfg=green
-set t_Co=256
-set background=dark
 set showcmd
-
-filetype indent on
 set showmode
 
-colorscheme pablo
 
 nnoremap zz :update<cr>
 nnoremap ZZ :update<cr>:q<cr>
@@ -34,6 +27,7 @@ vnoremap \p di()<esc>hpl<esc>
 vnoremap \b di[]<esc>hpl<esc>
 vnoremap \c di{}<esc>hpl<esc>
 
+filetype indent on
 au Filetype python setlocal ts=4 sw=4 sts=4 autoindent smartindent expandtab 
 au Filetype c setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
 au Filetype make setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
@@ -65,7 +59,9 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Use yay -S ctags-git to install universal-ctags instead
 " Plug 'universal-ctags/ctags' 
+
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
@@ -87,3 +83,12 @@ endif
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+
+syntax on
+set t_Co=256
+set background=dark
+set cursorline              " highlight current cursorline
+
+"let g:airline_theme = 'codedark'
+colorscheme codedark
