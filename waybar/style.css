@@ -1,5 +1,5 @@
 * {
-	font-size: 20px;
+	font-size: 16px;
 	font-family: monospace;
 }
 
@@ -23,6 +23,7 @@ window#waybar {
 #clock.2,
 #clock.3,
 #pulseaudio,
+#network,
 #memory,
 #cpu,
 #battery,
@@ -49,23 +50,31 @@ window#waybar {
 }
 
 #pulseaudio {
+	color: #708090;
+}
+#network {
 	color: #268bd2;
 }
 #memory {
-	color: #2aa198;
+	color: #6a5acd;
 }
 #cpu {
-	color: #6c71c4;
+	color: #008000;
 }
 #battery {
-	color: #859900;
+	color: #ffd700;
 }
 #disk {
 	color: #b58900;
 }
 
+#network.disconnected {
+    color: #f53c3c;
+}
+
 #clock,
 #pulseaudio,
+#network,
 #memory,
 #cpu,
 #battery,

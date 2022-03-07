@@ -245,10 +245,10 @@ bar {
     # }
 }
 
-default_border pixel 5
-default_floating_border pixel 5
+default_border pixel 2
+default_floating_border pixel 2
 
-xwayland enable
+xwayland enabled
 
 
 # Audio keybiding

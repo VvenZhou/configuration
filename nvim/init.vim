@@ -13,27 +13,30 @@ highlight Comment ctermfg=green
 set showcmd
 set showmode
 
-
-nnoremap zz :update<cr>
-nnoremap ZZ :update<cr>:q<cr>
-
-inoremap ii <Esc>l
-vnoremap vv <Esc>
-
-nnoremap \p i(<Esc>ea)<Esc>
-nnoremap \c i{<Esc>ea}<Esc>
-
-vnoremap \p di()<esc>hpl<esc>
-vnoremap \b di[]<esc>hpl<esc>
-vnoremap \c di{}<esc>hpl<esc>
-
 filetype indent on
-au Filetype python setlocal ts=4 sw=4 sts=4 autoindent smartindent expandtab 
+au Filetype python setlocal ts=4 sw=4 sts=4 autoindent smartindent expandtab
 au Filetype c setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
+au Filetype go setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
 au Filetype make setlocal ts=8 sw=8 sts=8 autoindent smartindent noexpandtab
 
 set copyindent
 set pastetoggle=<F2>
+
+nnoremap zz :update<cr>
+nnoremap ZZ :update<cr>:q<cr>
+inoremap ii <Esc>l
+vnoremap vv <Esc>
+nnoremap \p i(<Esc>ea)<Esc>
+nnoremap \c i{<Esc>ea}<Esc>
+vnoremap \p di()<esc>hpl<esc>
+vnoremap \b di[]<esc>hpl<esc>
+vnoremap \c di{}<esc>hpl<esc>
+
+" Quick window navigating
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
@@ -48,6 +51,10 @@ nnoremap td  :tabclose<CR>
 "nnoremap tl :tabprev<CR>
 "nnoremap tn :tabnew<CR>
 
+" Set default position of new splited window
+set splitbelow
+set splitright
+
 " set ignorecase              " case insensitive 
 " set mouse=v                 " middle-click paste with 
 " set incsearch               " incremental search
@@ -58,13 +65,27 @@ nnoremap td  :tabclose<CR>
 call plug#begin(stdpath('data') . '/plugged')
 
 " Use yay -S ctags-git to install universal-ctags instead
-" Plug 'universal-ctags/ctags' 
+"Plug 'universal-ctags/ctags'
 
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tomasiser/vim-code-dark'
+"Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
 
 call plug#end()
 
+
+
+syntax on
+set t_Co=256
+set background=dark
+set cursorline              " highlight current cursorline
+
+colorscheme codedark
+
+"let g:airline_theme = 'codedark'
+"let g:airline_symbols_ascii = 1
+"let g:airline_powerline_fonts = 1
 
 
 
@@ -85,10 +106,13 @@ let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 
-syntax on
-set t_Co=256
-set background=dark
-set cursorline              " highlight current cursorline
+" Lualine Configuration
+lua <<EOF
+require('lualine').setup{
+	options = {
+		icons_enabled = false,
+		theme = 'codedark'
+	}
+}
+EOF
 
-"let g:airline_theme = 'codedark'
-colorscheme codedark

@@ -25,6 +25,9 @@
 		"pulseaudio",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
+		"network",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
 		"disk",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
@@ -76,8 +79,9 @@
 	},
 
 	"pulseaudio": {
-		"format": "{icon}{volume:2}%",
-		"format-bluetooth": "{icon}{volume}%",
+//		"format": "{icon}.{volume:2}",
+		"format": "{icon}.{volume}",
+		"format-bluetooth": "{icon}.{volume}",
 		"format-muted": "MUTE",
 		"format-icons": {
 			"headphones": "",
@@ -90,13 +94,23 @@
 		"on-click": "helvum",
 		//"on-click-right": "pavucontrol"
 	},
+	"network": {
+//	"format-wifi": "{essid} ({signalStrength}%)",
+//	"format-ethernet": "{ifname}:{ipaddr}/{cidr}",
+	"format-wifi": "Wifi.{signalStrength}",
+	"format-ethernet": "Eth",
+	"format-disconnected": "None",
+	"interval" : 5,
+	"tooltip": true
+    },
 	"memory": {
 		"interval": 5,
-		"format": "Mem{}%"
+		"format": "Mem.{}"
 	},
 	"cpu": {
 		"interval": 5,
-		"format": "CPU{usage:2}%"
+//		"format": "CPU.{usage:1}"
+		"format": "CPU.{usage}"
 	},
 	"battery": {
 		"states": {
@@ -104,11 +118,12 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "Bat{capacity}%"
+		"format": "Bat.{capacity}"
 	},
 	"disk": {
-		"interval": 5,
-		"format": "Disk{percentage_used:2}%",
+		"interval": 30,
+//		"format": "Disk.{percentage_used:2}",
+		"format": "Disk.{percentage_used}",
 		"path": "/"
 	},
 	"tray": {
