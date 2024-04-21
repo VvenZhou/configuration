@@ -3,19 +3,19 @@
 -----------------------------------------------------------
 
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap=true, silent=true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 local function nsimap(mode, lhs, rhs, opts)
-  local options = { noremap=true, silent=false }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = false }
+    if opts then
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 -- Change leader to a comma
 vim.g.mapleader = ','
@@ -76,9 +76,9 @@ map('n', '<leader>q', ':qa!<CR>')
 --map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
 
 -- NvimTree
-map('n', '<C-n>', ':NvimTreeToggle<CR>')            -- open/close
-map('n', '<leader>f', ':NvimTreeRefresh<CR>')       -- refresh
-map('n', '<leader>n', ':NvimTreeFindFile<CR>')      -- search file
+map('n', '<C-n>', ':NvimTreeToggle<CR>')       -- open/close
+map('n', '<leader>f', ':NvimTreeRefresh<CR>')  -- refresh
+map('n', '<leader>n', ':NvimTreeFindFile<CR>') -- search file
 
 -- Tagbar
-map('n', '<leader>z', ':TagbarToggle<CR>')          -- open/close
+map('n', '<leader>z', ':TagbarToggle<CR>') -- open/close
