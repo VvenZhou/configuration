@@ -33,29 +33,33 @@ map('', '<right>', '<nop>')
 -- Map Esc to kk
 map('i', 'kk', '<Esc>')
 
--- Clear search highlighting with <leader> and c
-map('n', '<leader>c', ':nohl<CR>')
-
 -- Toggle auto-indenting for code paste
-map('n', '<F2>', ':set invpaste paste?<CR>')
-vim.opt.pastetoggle = '<F2>'
+--map('n', '<F2>', ':set invpaste paste?<CR>')
+--vim.opt.pastetoggle = '<F2>'
 
 -- Change split orientation
-map('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
-map('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
+--map('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
+--map('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
+map("n", "sv", ":vsp<CR>")
+map("n", "sh", ":sp<CR>")
+map("n", "sc", "<C-w>c") -- close current
+map("n", "so", "<C-w>o") -- close others
 
--- Move around splits using Ctrl + {h,j,k,l}
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
+-- Move around splits using Alt + {h,j,k,l}
+map('n', '<A-h>', '<C-w>h')
+map('n', '<A-j>', '<C-w>j')
+map('n', '<A-k>', '<C-w>k')
+map('n', '<A-l>', '<C-w>l')
+
+map('n', '<C-u>', '8<C-y>8k')
+map('n', '<C-d>', '8<C-e>8j')
 
 -- Move around tabs
 map('n', 'th', ':tabfirst<CR>')
 map('n', 'tl', ':tablast<CR>')
 map('n', 'tj', ':tabnext<CR>')
 map('n', 'tk', ':tabprev<CR>')
-map('n', 'td', ':tabclose<CR>')
+--map('n', 'tq', ':tabclose<CR>')
 nsimap('n', 'tt', ':tabedit<Space>')
 
 -- Reload configuration without restart nvim
@@ -64,9 +68,11 @@ map('n', '<leader>r', ':so %<CR>')
 -- Fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>')
 
--- Close all windows and exit from Neovim with <leader> and q
-map('n', '<leader>q', ':qa!<CR>')
+-- Close current windows and exit from Neovim with <leader> and q
+map('n', '<leader>q', ':q!<CR>')
 
+-- Clear search highlighting with <leader> and c
+nsimap('n', '<leader>c', ':nohl<CR>')
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------

@@ -14,6 +14,7 @@ opt.expandtab = true
 opt.number = true
 opt.relativenumber = false
 opt.cursorline = true
+--opt.scrolloff = 5
 
 opt.splitbelow = true
 opt.splitright = true
@@ -24,6 +25,12 @@ opt.ignorecase = true
 opt.smartcase = true
 
 
+vim.api.nvim_create_autocmd({"BufEnter", "BufNewFile", "BufWinEnter"}, {
+    pattern = {"*.v"},
+    callback = function ()
+        vim.opt.filetype = "verilog"
+    end
+})
 
 -----------------------------------------------------------
 -- Startup
